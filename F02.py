@@ -6,9 +6,10 @@ def logout (user,login):
         print("Logout gagal!")
         print("Anda belum login, silakan login terlebih dahulu sebelum melakukan logout.")
         return False
-    while login == True:
-        return False
-        break
+    else:
+        while login == True:
+            return False
+            break
 
 
     
