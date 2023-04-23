@@ -141,6 +141,7 @@ def laporanjin(user, candi, bahan_bangunan): # arrray1 = user ,array2 = bahan, a
 
     N = hitungLenUser(user)
     print("> Total Jin: ",N)
+    N = 103
     nPengumpul = jumlahJin('Pengumpul',user,N)
     nPembangun = jumlahJin('Pembangun',user,N)
     print("> Total JIn Pengumpul: ",nPengumpul)
