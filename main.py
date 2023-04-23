@@ -1,6 +1,7 @@
 #file main
 # Kelompok 9 /K-04
 from module import F01
+from module import F02
 #from module import F03
 #from module import F04
 from module import F05
@@ -10,8 +11,9 @@ from module import F08
 from module import F09
 from module import F10
 #from module import F11
-#from module import F12
+from module import F12
 #from module import F15
+from module import F16
 from module import load
 from module import argparse
 
@@ -30,13 +32,20 @@ user = load.open_csv(f)
 candi = load.open_csv(g)
 bahan_bangunan = load.open_csv(h)
 
+username = None
+login = False
+save = False
 while kondisi :
     masukan = input(">>> ")
 
-    if(masukan == 'login'):
-        print("login")
+    if masukan == 'login' :
+        login = F01.login(user,login,username)
 
-
+    elif masukan == 'logout' :
+        login = F02.logout(user,login)
+        
+        
+        
     elif masukan == 'ubahjin' :
         F05.ubahJin(user)
 
@@ -52,7 +61,14 @@ while kondisi :
     elif masukan == 'laporancandi' :
         F10.laporancandi(candi)
 
-    elif(masukan == 'exit'):
+    elif masukan == 'ayamberkokok' :
+        F12.ayamBerkokok(candi)
+        break
+        
+        
+        
+    elif masukan == 'exit' :
+        F16.exit(save)
         break
 #print(F01.login())
 
