@@ -9,5 +9,6 @@ def exit(save):
         while meminta_save == 'y' or 'Y':
             save = True
             break
-    while meminta_save != 'y' or 'Y' or 'n' or 'N':
-        meminta_save = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
+    else:
+        while meminta_save != 'y' or 'Y' or 'n' or 'N':
+            meminta_save = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
