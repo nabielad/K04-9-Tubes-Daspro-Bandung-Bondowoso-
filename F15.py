@@ -41,17 +41,21 @@ def help(role):
     elif role == "jin_pembangun":
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
-        print("2. bangun")
+        print("2. save")
+        print("   Untuk menyimpan data")
+        print("3. bangun")
         print("   Untuk membangun candi")
-        print("3. exit")
+        print("4. exit")
         print("   Untuk keluar dari program dan kembali ke terminal")
     
     elif role == "jin_pengumpul":
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
-        print("2. kumpul")
+        print("2. save")
+        print("   Untuk menyimpan data")
+        print("3. kumpul")
         print("   Untuk mengumpulkan bahan-bahan bangunan")
-        print("3. exit")
+        print("4. exit")
         print("   Untuk keluar dari program dan kembali ke terminal")
     
     else:   # role == ""
