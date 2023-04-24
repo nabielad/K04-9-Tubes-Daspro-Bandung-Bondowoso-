@@ -24,7 +24,7 @@ def help(role):
         print("9. laporancandi")
         print("   Untuk mengetahui progress pembangunan candi")
         print("10. exit")
-        print("   Untuk keluar dari permainan")
+        print("   Untuk keluar dari program dan kembali ke terminal")
     
     elif role == "roro_jonggrang":
         print("1. logout")
@@ -36,7 +36,7 @@ def help(role):
         print("4. ayamberkokok")
         print("   Untuk menyelesaikan permainan dan menentukan pemenang")
         print("5. exit")
-        print("   Untuk keluar dari permainan")
+        print("   Untuk keluar dari program dan kembali ke terminal")
 
     elif role == "jin_pembangun":
         print("1. logout")
@@ -44,7 +44,7 @@ def help(role):
         print("2. bangun")
         print("   Untuk membangun candi")
         print("3. exit")
-        print("   Untuk keluar dari permainan")
+        print("   Untuk keluar dari program dan kembali ke terminal")
     
     elif role == "jin_pengumpul":
         print("1. logout")
@@ -52,10 +52,12 @@ def help(role):
         print("2. kumpul")
         print("   Untuk mengumpulkan bahan-bahan bangunan")
         print("3. exit")
-        print("   Untuk keluar dari permainan")
+        print("   Untuk keluar dari program dan kembali ke terminal")
     
     else:   # role == ""
         print("1. login")
         print("   Untuk masuk menggunakan akun")
         print("2. load")
         print("   Untuk memuat file eksternal ke dalam permainan")
+        print("3. exit")
+        print("   Untuk keluar dari porgram dan kembali ke terminal")
