@@ -1,15 +1,9 @@
-#NIM/Nama : 16522076/Kayla Nasywa V
-#F02 - Logout
+import variables as var
 
-def logout (user,login):
-    if login == False:
-        print("Logout gagal!")
-        print("Anda belum login, silakan login terlebih dahulu sebelum melakukan logout.")
-        return False
+def logout():
+    if var.logged_in:
+        var.current_user = ("", "", "")
+        var.logged_in = False
     else:
-        while login == True:
-            return False
-            break
-
-
-    
+        print("Logout gagal!\nAnda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
+        

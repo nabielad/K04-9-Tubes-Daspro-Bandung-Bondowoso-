@@ -1,62 +1,58 @@
-# NIM/Nama   : 16522022/Nabiel Aufi Danendra
-# F03 - Summon Jin
+import variables as var
 
-from functions import *
-def summonjin(dataUser):
+def summonjin():
+    if jin_penuh(var.users):
+        print("Jumlah Jin telah maksimal! (100 jin). Bandung tidak dapat men-summon lebih dari itu")
 
-    # KAMUS LOKAL
-    # nomor : integer
-    # tipe_jin, username_jin, password_jin : string
+    else:
+        print("Jenis jin yang dapat dipanggil:")
+        print(" (1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
+        print(" (2) Pembangun - Bertugas membangun candi")
 
-    print("Jenis jin yang dapat dipanggil:")
-    print("(1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
-    print("(2) Pembangun - Bertugas membangun candi")
-    print()
-
-    # validasi nomor jenis jin
-    while True:
-        nomor = int(input("Masukkan nomor jenis jin yang ingin dipanggil: "))
-        if nomor == 1:
-            tipe_jin = "jin_pengumpul"
-            print()
-            print("Memilih jin Pengumpul.")
-            break
-        elif nomor == 2:
-            tipe_jin = "jin_pembangun"
-            print()
-            print("Memilih jin Pembangun.")
-            break
-        else:
-            print()
-            print(f"Tidak ada jenis jin yang bernomor {nomor}!")
-            print()
-    print()
-
-    # validasi username jin
-    while True:
-        username_jin = input("Masukkan username jin: ")
-        for i in range(length(dataUser)):
-            if dataUser[i][0] == username_jin:
-                print(f"Username {username_jin} sudah diambil!")
-            else:
+        while True:
+            pilih_jin = input("Masukkan nomor jenis jin yang ingin dipanggil: ")
+            if pilih_jin == '1':
+                role = "jin_pengumpul"
                 break
-        break
-    
-    # validasi password jin
-    while True:
-        password_jin = input("Masukkan password jin: ")
-        if len(password_jin) < 5 or len(password_jin) > 25:
-            print("Password panjangnya harus 5-25 karakter!")
-        else:
-            break
+            elif pilih_jin == '2':
+                role = "jin_pembangun"
+                break
+            else:
+                print("Tidak ada jenis jin bernomor " + pilih_jin + "!")
 
-    # menambahkan jin baru ke array
-    jin_baru = [username_jin, password_jin, tipe_jin]
+        while True:
+            username_taken = False
+            username = input("Masukkan username jin:")
+            for idx in range(1, 101):
+                if var.users[idx] == None:
+                    continue
+                if username == var.users[idx][0]:
+                    username_taken = True
+            if username_taken:
+                print("Username " + username + " sudah diambil!")
+            else:
+                break        
 
-    dataUser = newappend(dataUser, jin_baru)
+        while True:
+            password = input("Masukkan password jin:")
+            if len(password) < 5 or len(password) > 25:
+                print("Password panjangnya harus 5-25 karakter!")
+            else:
+                var.users = isi_jin(var.users, username, password, role)
+                print("Mengumpulkan sesajen...\nMenyerahkan sesajen...\nMembacakan mantra...")
+                print("Jin " + username + " berhasil dipanggil!")
+                break
 
-    print("Mengumpulkan sesajen. . .")
-    print("Menyerahkan sesajen. . .")
-    print("Membacakan mantra. . .")
+def jin_penuh(user_arr):
+    penuh = True 
+    for idx in range(1, 101):
+        if user_arr[idx] == None:
+            penuh = False
+    return penuh
 
-    print(f"Jin {username_jin} berhasil dipanggil!")
+def isi_jin(user_arr, username, password, role):
+    idx = 1
+    while user_arr[idx] != None:
+        idx += 1
+    user_arr[idx] = [username, password, role]
+    return user_arr

@@ -1,27 +1,26 @@
-#NIM/Nama : 16522076/Kayla Nasywa V
-#F01 - Login
+import variables as var
 
-def login(user,login,username):
-    while login and not(username):
-        print("Login gagal!")
-        print("Anda telah login dengan username " + username + ", silakan lakukan logout sebelum melakukan login kembali.")
+def login():
+    if var.logged_in:
+        print("Login gagal!\nAnda telah login dengan username " + var.current_user[0] + ", silahkan lakukan “logout”")
+    else:
+        input_username = input("Username: ")
+        input_password = input("Password: ")
 
-    username = input("Username: ")
-    password = input("Password: ")
-
-    i = 0
-    while user[i] != None and i < 102:
-        if user[i][0] == username and user[i][1] == password:
-            print("Selamat datang, " + username + "!")
-            print("Masukkan command " + "help" +" untuk daftar command yang dapat kamu panggil.")
-            return True
-        elif user[i][0] == username and user[i][1] != password:
-            print("Password salah!")
-            return False
-        elif user[i][0] != username and user[i][1] == password:
-            print("Username tidak terdaftar!")
-            return False
-        i = i+1
-
-
-
+        for idx in range(1,102):
+            if idx == 101:
+                print("\nUsername tidak terdaftar!")
+            if var.users[idx] == None:
+                continue
+            if input_username == var.users[idx][0]:
+                if input_password == var.users[idx][1]:
+                    var.current_user = (var.users[idx][0],
+                                        var.users[idx][1],
+                                        var.users[idx][2])
+                    var.logged_in = True
+                    print("\nSelamat datang, " + var.current_user[0] + "!")
+                    print("Masukkan command “help” untuk daftar command yang dapat kamu panggil.")
+                    break
+                else:
+                    print("\nPassword salah!")
+                    break
